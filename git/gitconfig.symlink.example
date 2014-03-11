@@ -1,0 +1,5 @@
+[user]
+	email = jason@jasontrill.com
+	name = Jason Trill
+[push]
+	default = simple
