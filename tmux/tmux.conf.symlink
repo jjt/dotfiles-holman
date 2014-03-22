@@ -38,4 +38,7 @@ set -g pane-active-border-bg black
 set -g pane-border-fg colour240
 set -g pane-border-bg black
 
+# Fix pbcopy problems
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
 #source "$HOME/.config/powerline/powerline-tmux-binding.conf"

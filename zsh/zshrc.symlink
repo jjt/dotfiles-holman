@@ -10,17 +10,18 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export EDITOR='mvim'
 
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
 export PATH=/usr/local/share/npm/bin:$PATH
-eval "$(rbenv init -)"
 
-PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator_completion ]] && source $HOME/.tmuxinator/scripts/tmuxinator_completion 
 [[ -s $HOME/.nvm/nvm/sh ]] && source $HOME/.nvm/nvm.sh
 
-alias pbv=pythonbrew\ venv
-alias pybrew=pythonbrew
-pythonbrew use 2.7.3 
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+source $HOME/.nvm/nvm.sh
+source $HOME/.dotfiles/zsh/aliases.zsh
+
+
