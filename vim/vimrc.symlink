@@ -2,8 +2,8 @@ set nocompatible
 
 " Vundle
 filetype off 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-fugitive'
@@ -18,6 +18,7 @@ Bundle 'spolu/dwm.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
 
 "vim-snipmate deps
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -28,6 +29,7 @@ Bundle 'garbas/vim-snipmate'
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 
+call vundle#end()
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -44,7 +46,7 @@ set relativenumber
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set noautochdir
-set sessionoptions=buffers,tabpages
+set sessionoptions=buffers,tabpages,curdir
 
 " Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -131,7 +133,7 @@ nnoremap <C-H> :tabp <CR>
 map <leader>dcl :%s/^.*console\.log.*\n//gc <CR>
 map <leader>ccl :%s/\(^.*\)\(console\.log.*\n\)/\1\/\/\2/gc <CR>
 map <leader>b :buffer<Space>
-nnoremap <Leader>s :%s/<C-r><C-w>//gic<Left><Left><Left><Left>
+nnoremap <Leader>sr :%s/<C-r><C-w>//gic<Left><Left><Left><Left>
 nnoremap <Leader>sts :call SetTabStops()<Left>
 nmap <leader>cd :lcd %:p:h<cr>
 nmap <leader>sar :!sudo /usr/sbin/service apache2 restart<cr>
@@ -244,3 +246,9 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
   endwhile
 endfunction
 
+
+" Use Ag (Silver Searcher) for CtrlP backend
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif

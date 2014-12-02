@@ -1,6 +1,9 @@
 set -g default-shell /bin/zsh
-#set -g default-terminal screen-256color
 #setw -g xterm-keys on
+
+set -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
 
 set -g status-keys vi
 set -g bell-action any

@@ -23,5 +23,3 @@ eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 source $HOME/.nvm/nvm.sh
 source $HOME/.dotfiles/zsh/aliases.zsh
-
-

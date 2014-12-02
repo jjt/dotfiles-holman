@@ -1,3 +1,4 @@
+config keyboardLayout colemak
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
@@ -15,7 +16,10 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
+bind 4:ctrl hint ARSTDHNEIO
+
 # Location - Sets the window to the specified location.
+bind f:shift;ctrl ${full}
 bind k:shift;ctrl ${tophalf}
 bind j:shift;ctrl ${bottomhalf}
 bind h:shift;ctrl ${lefthalf}

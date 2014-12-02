@@ -1,5 +1,5 @@
 alias reload='. ~/.zshrc'
-alias hack='history | ack'
+alias hack='fc -l 1 | ack'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias ns='npm search'
