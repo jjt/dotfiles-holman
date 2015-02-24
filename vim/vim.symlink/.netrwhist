@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/jjt/.dotfiles/tmuxinator.symlink/completion'
 let g:netrw_dirhist_2='/Users/jjt/projects/walmart-movies/css/styl'
 let g:netrw_dirhist_3='/Users/jjt/projects/walmart-movies/css/atlas-styles'
+let g:netrw_dirhist_4='/Users/jjt/projects/vessyl/app/assets/stylesheets/components'

@@ -23,3 +23,9 @@ eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 source $HOME/.nvm/nvm.sh
 source $HOME/.dotfiles/zsh/aliases.zsh
+
+# Vagrant passthrough
+vs() {
+ args=$(printf "%s " "$@") # concatenate arguments into single string
+ vagrant ssh -c "$args"
+}

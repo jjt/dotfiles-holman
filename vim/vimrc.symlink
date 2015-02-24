@@ -1,7 +1,7 @@
 set nocompatible
 
 " Vundle
-filetype off 
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Bundle 'gmarik/vundle'
@@ -19,6 +19,9 @@ Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'wavded/vim-stylus'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'mtscout6/vim-cjsx'
+Bundle 'triglav/vim-visual-increment'
 
 "vim-snipmate deps
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -34,7 +37,7 @@ call vundle#end()
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
-" Basic Settings 
+" Basic Settings
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set t_Co=256
@@ -43,6 +46,7 @@ set background=dark
 colorscheme wombat256mod
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set relativenumber
+set number
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set noautochdir
@@ -60,7 +64,7 @@ set matchtime=2             " (for only .2 seconds).
 set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
-set tabstop=2               " <tab> inserts 4 spaces 
+set tabstop=2               " <tab> inserts 4 spaces
 set shiftwidth=2            " but an indent level is 2 spaces wide.
 set softtabstop=2           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
@@ -139,8 +143,11 @@ nmap <leader>cd :lcd %:p:h<cr>
 nmap <leader>sar :!sudo /usr/sbin/service apache2 restart<cr>
 nnoremap <leader>ln :set relativenumber!<cr>
 
+" CtrlP MRU mode
+nnoremap <leader>p :CtrlPMRUFiles<cr>
+
 " DWM plugin
-nmap <leader>wf <Plug>DWMFocus 
+nmap <leader>wf <Plug>DWMFocus
 nmap <leader>wl <Plug>DWMGrowMaster
 nmap <leader>wh <Plug>DWMShrinkMaster
 nmap <c-,> <Plug>DWMRotateCounterclockwise
@@ -174,7 +181,7 @@ onoremap <silent> [k :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]k :call NextIndent(1, 1, 1, 1)<CR>
 
 augroup startup
-    " Prevent duplicated autocmds 
+    " Prevent duplicated autocmds
     " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
     au!
 
@@ -187,10 +194,10 @@ augroup startup
     au BufRead,BufNewFIle *.scss setlocal filetype=scss
     au BufRead,BufNewFile *.php setlocal filetype=php.html
     au BufRead,BufNewFile *.coffee setlocal filetype=coffee sw=2 ts=2 sts=2
-    au BufRead,BufNewFile *.coffee setlocal filetype=coffee sw=2 ts=2 sts=2
     au BufRead,BufNewFile *.js setlocal sw=2 ts=2 sts=2
     au BufRead,BufNewFile *.hamlpy setlocal filetype=haml sw=4 ts=4 sts=4
     au BufRead,BufNewFile *.py setlocal filetype=pydjango.python
+    au BufRead,BufNewFile *.cjsx :SnipMateLoadScope html
 
     "autocmd BufEnter * lcd %:p:h
 augroup END
@@ -251,4 +258,9 @@ endfunction
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
+endif
+
+" FIX: PluginUpdate => git pull: git-sh-setup: No such file or directory in MacVim (OK in non-GUI version of Vim)
+if has("gui_macvim")
+    set shell=/bin/bash\ -l
 endif

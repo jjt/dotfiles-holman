@@ -35,6 +35,7 @@ bind -r C-l resize-pane -R
 bind r source-file ~/.tmux.conf
 bind C-o next-layout
 bind : command-prompt
+bind -n C-k clear-history
 
 set -g pane-active-border-fg white
 set -g pane-active-border-bg black
