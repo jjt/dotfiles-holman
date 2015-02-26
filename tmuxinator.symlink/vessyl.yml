@@ -1,0 +1,9 @@
+name: vessyl
+root: ~/projects/vessyl
+
+windows:
+  - shell:
+      layout: main-vertical
+      panes:
+        -
+        - foreman start

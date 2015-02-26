@@ -1,0 +1,9 @@
+name: lunch
+root: ~/projects/lets-react-dot-javascript
+
+windows:
+  - main:
+      layout: main-vertical
+      panes:
+        -
+        -
