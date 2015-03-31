@@ -1,0 +1,9 @@
+name: duo
+root: ~/projects/duo_web
+
+windows:
+  - shell:
+      layout: main-horizontal
+      panes:
+        -
+        -

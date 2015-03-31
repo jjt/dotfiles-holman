@@ -13,6 +13,9 @@ alias npme='PATH=$(npm bin):$PATH'
 
 alias color='osascript ~/.color_meter.scpt'
 
+alias gulp='nocorrect gulp'
+alias grunt='nocorrect grunt'
+
 # because typing 'cd' is A LOT of work!!
 alias ..='cd ../'
 alias ...='cd ../../'

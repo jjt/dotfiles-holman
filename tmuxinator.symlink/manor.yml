@@ -1,0 +1,9 @@
+name: simpletemplate
+root: ~/projects/manor
+
+windows:
+  - main:
+      layout: main-vertical
+      panes:
+        -
+        -

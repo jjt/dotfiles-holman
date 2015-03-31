@@ -125,7 +125,7 @@ map <leader>v :tabe ~/.vimrc<CR>
 map <leader>V :source $MYVIMRC<CR>
 map <leader>wst :w !sudo tee %
 map <leader>n :NERDTreeTabsToggle<CR>
-nmap <leader>a <Esc>:Ack!
+nmap <leader>a <Esc>:Ack! 
 map <leader>rs <ESC>:call ReloadAllSnippets() <CR>
 nmap <leader>ss :wa<CR>:mksession! ~/.vim/sessions/
 nmap <leader>so :wa<CR>:so ~/.vim/sessions/
@@ -142,6 +142,8 @@ nnoremap <Leader>sts :call SetTabStops()<Left>
 nmap <leader>cd :lcd %:p:h<cr>
 nmap <leader>sar :!sudo /usr/sbin/service apache2 restart<cr>
 nnoremap <leader>ln :set relativenumber!<cr>
+nmap <leader>sa :bufdo w
+nmap <leader>fw :FixWhitespace<cr>
 
 " CtrlP MRU mode
 nnoremap <leader>p :CtrlPMRUFiles<cr>

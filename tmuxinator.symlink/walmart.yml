@@ -1,7 +1,7 @@
-# ~/.tmuxinator/atlas.yml
+# ~/.tmuxinator/walmart.yml
 
-name: atlas
-root: ~/projects/atlas
+name: walmart
+root: ~/projects/walmart/homepage
 
 # Optional tmux socket
 # socket_name: foo
@@ -23,6 +23,6 @@ windows:
       layout: tiled
       panes:
         -
-        - cd infra
-        - cd infra
-        - cd infra; vag up
+        -
+        -
+        - cd atlas-common/frontend

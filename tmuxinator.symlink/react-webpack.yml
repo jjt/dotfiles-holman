@@ -1,0 +1,10 @@
+name: react-webpack
+root: ~/projects/react-webpack
+
+windows:
+  - shell:
+      layout: main-horizontal
+      panes:
+        -
+        -
+        -
