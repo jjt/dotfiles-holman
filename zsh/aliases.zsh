@@ -16,6 +16,9 @@ alias color='osascript ~/.color_meter.scpt'
 alias gulp='nocorrect gulp'
 alias grunt='nocorrect grunt'
 
+# Homebrew vim instead of system
+alias vim='/usr/local/bin/vim'
+
 # because typing 'cd' is A LOT of work!!
 alias ..='cd ../'
 alias ...='cd ../../'

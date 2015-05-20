@@ -2,3 +2,5 @@
 --ignore-dir=node_modules
 --ignore-dir=vendor
 --type-set=hbs=.hbs
+--type-set=cjsx=.cjsx
+--type-set=jsx=.jsx

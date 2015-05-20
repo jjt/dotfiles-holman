@@ -14,24 +14,26 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle 'spolu/dwm.vim'
-"Bundle 'jiangmiao/auto-pairs'
-Bundle 'nono/vim-handlebars'
-Bundle 'groenewege/vim-less'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'mtscout6/vim-cjsx'
 Bundle 'triglav/vim-visual-increment'
+Bundle 'bronson/vim-trailing-whitespace'
 
 "vim-snipmate deps
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'mmozuras/snipmate-mocha'
+
+Bundle 'nono/vim-handlebars'
+Bundle 'groenewege/vim-less'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
+Bundle 'mtscout6/vim-cjsx'
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
-
 call vundle#end()
 
 " Powerline
@@ -195,11 +197,12 @@ augroup startup
     " Filetype settings
     au BufRead,BufNewFIle *.scss setlocal filetype=scss
     au BufRead,BufNewFile *.php setlocal filetype=php.html
-    au BufRead,BufNewFile *.coffee setlocal filetype=coffee sw=2 ts=2 sts=2
-    au BufRead,BufNewFile *.js setlocal sw=2 ts=2 sts=2
-    au BufRead,BufNewFile *.hamlpy setlocal filetype=haml sw=4 ts=4 sts=4
+    "au BufRead,BufNewFile *.coffee setlocal filetype=coffee sw=2 ts=2 sts=2
+    "au BufRead,BufNewFile *.js setlocal sw=2 ts=2 sts=2
+    au BufRead,BufNewFile *.hamlpy setlocal filetype=haml
     au BufRead,BufNewFile *.py setlocal filetype=pydjango.python
     au BufRead,BufNewFile *.cjsx :SnipMateLoadScope html
+    au BufRead,BufNewFile .eslintrc setlocal filetype=javascript
 
     "autocmd BufEnter * lcd %:p:h
 augroup END
