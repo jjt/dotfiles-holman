@@ -1,6 +1,6 @@
 var app = express.createServer();
 
-app.configure(function(){
+app.configure(function () {
   app.set('views', __dirname + '${1:/../views}');
   ${2:app.use(connect.bodyDecoder());}
   ${3:app.use(connect.methodOverride());}
@@ -9,10 +9,10 @@ app.configure(function(){
   app.use(connect.staticProvider(__dirname + '${4:/../public'}));
 });
 
-app.configure('development', function(){
+app.configure('development', function () {
   app.use(connect.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
-app.configure('production', function(){
+app.configure('production', function () {
      app.use(connect.errorHandler()); 
 });
