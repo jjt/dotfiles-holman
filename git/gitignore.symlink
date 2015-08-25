@@ -5,7 +5,7 @@
 node_modules
 .sass-cache
 configstore
-.*
 npm-debug.log
 .Vagrantfile
 .up
+*.SECRET*

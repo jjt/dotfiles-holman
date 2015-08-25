@@ -1,0 +1,32 @@
+bind f:shift;ctrl ${resize-full}
+
+bind h:shift;ctrl ${half-left}
+bind o:shift;ctrl ${half-right}
+
+bind j:shift;ctrl ${quarter-upper-left}
+bind ;:shift;ctrl ${quarter-upper-right}
+bind k:shift;ctrl ${quarter-lower-left}
+bind /:shift;ctrl ${quarter-lower-right}
+
+bind h:shift;ctrl;alt ${trio-two-col-left}
+bind o:shift;ctrl;alt ${trio-two-col-right}
+
+bind j:shift;ctrl;alt ${hex-two-col-upper-left}
+bind ;:shift;ctrl;alt ${hex-two-col-upper-right}
+bind k:shift;ctrl;alt ${hex-two-col-lower-left}
+bind /:shift;ctrl;alt ${hex-two-col-lower-right}
+
+bind l:shift;ctrl ${hex-upper-left}
+bind u:shift;ctrl ${hex-upper-middle}
+bind y:shift;ctrl ${hex-upper-right}
+
+bind n:shift;ctrl ${trio-left}
+bind e:shift;ctrl ${trio-middle}
+bind i:shift;ctrl ${trio-right}
+
+bind m:shift;ctrl ${hex-lower-left}
+bind ,:shift;ctrl ${hex-lower-middle}
+bind .:shift;ctrl ${hex-lower-right}
+
+# Hints
+bind 4:ctrl hint ARSTDHNEIO

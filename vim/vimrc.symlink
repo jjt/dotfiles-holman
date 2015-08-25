@@ -2,39 +2,81 @@ set nocompatible
 
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
 let g:ctrlp_working_path_mode = 0
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle 'spolu/dwm.vim'
-Bundle 'triglav/vim-visual-increment'
-Bundle 'bronson/vim-trailing-whitespace'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'mantiz/vim-plugin-dirsettings'
+
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+let g:gist_post_private = 1
+
+"Plugin 'spolu/dwm.vim'
+" Goldenview
+" let g:goldenview__enable_default_mapping = 0
+" Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'triglav/vim-visual-increment'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'terryma/vim-expand-region'
+Plugin 'blueyed/vim-diminactive'
 
 "vim-snipmate deps
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'mmozuras/snipmate-mocha'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
-Bundle 'nono/vim-handlebars'
-Bundle 'groenewege/vim-less'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'mtscout6/vim-cjsx'
+" Language-specific plugs
+Plugin 'nono/vim-handlebars'
+Plugin 'groenewege/vim-less'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
+Plugin 'pangloss/vim-javascript'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'mxw/vim-jsx'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mtscout6/vim-cjsx'
+Plugin 'elixir-lang/vim-elixir'
+
+Plugin 'scrooloose/syntastic'
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { "mode": "passive" }
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 call vundle#end()
+
+"JsDoc
+let g:jsdoc_default_mapping = 0
+let g:jsdoc_allow_input_prompt = 1
+
+" NERDTree
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" diminactive
+hi ColorColumn ctermbg=0 guibg=#222222 guifg=#888888
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -53,6 +95,9 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set noautochdir
 set sessionoptions=buffers,tabpages,curdir
+set winminheight=0
+set winminwidth=0
+set textwidth=0
 
 " Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -117,25 +162,31 @@ set exrc
 set secure
 
 let mapleader=","
+map <space> <leader>
 
 cabbr %% <C-R>=expand('%:p:h')<CR>
 
 map ; :
 noremap ;; ;
 nnoremap <F5> :buffers<CR>:buffer<Space>
-map <leader>v :tabe ~/.vimrc<CR>
+" vimrc shortcuts
+map <leader>v :tabe $MYVIMRC<CR>
 map <leader>V :source $MYVIMRC<CR>
+map <leader>gv :tabe $MYGVIMRC<CR>
+map <leader>GV :source $MYGVIMRC<CR>
+
 map <leader>wst :w !sudo tee %
-map <leader>n :NERDTreeTabsToggle<CR>
-nmap <leader>a <Esc>:Ack! 
+map <leader>no :noh<CR>
+nmap <leader>a <Esc>:Ag!<Space>
 map <leader>rs <ESC>:call ReloadAllSnippets() <CR>
-nmap <leader>ss :wa<CR>:mksession! ~/.vim/sessions/
+nmap <leader>ss :wa<CR>:call DeleteHiddenBuffers()<CR>:mksession! ~/.vim/sessions/
 nmap <leader>so :wa<CR>:so ~/.vim/sessions/
 nmap <silent> <leader>tp :set paste!<cr>
 nnoremap <C-l> :tabn <CR>
 nnoremap <C-h> :tabp <CR>
 nnoremap <C-L> :tabn <CR>
 nnoremap <C-H> :tabp <CR>
+nnoremap <leader>tc :tabclose<CR>
 map <leader>dcl :%s/^.*console\.log.*\n//gc <CR>
 map <leader>ccl :%s/\(^.*\)\(console\.log.*\n\)/\1\/\/\2/gc <CR>
 map <leader>b :buffer<Space>
@@ -147,24 +198,42 @@ nnoremap <leader>ln :set relativenumber!<cr>
 nmap <leader>sa :bufdo w
 nmap <leader>fw :FixWhitespace<cr>
 
+nnoremap <Leader>stm :SyntasticToggleMode<cr>
+nnoremap <Leader>stc :SyntasticCheck<cr>
+
 " CtrlP MRU mode
 nnoremap <leader>p :CtrlPMRUFiles<cr>
 
 " DWM plugin
-nmap <leader>wf <Plug>DWMFocus
-nmap <leader>wl <Plug>DWMGrowMaster
-nmap <leader>wh <Plug>DWMShrinkMaster
-nmap <c-,> <Plug>DWMRotateCounterclockwise
+"nmap <leader>wf <Plug>DWMFocus
+"nmap <leader>wl <Plug>DWMGrowMaster
+"nmap <leader>wh <Plug>DWMShrinkMaster
+"nmap <c-,> <Plug>DWMRotateCounterclockwise
+
+" Goldenview
+" nmap <silent> <C-N>       <Plug>GoldenViewSplit
+" nmap <silent> <leader>wf  <Plug>GoldenViewSwitchMain
+" nmap <silent> <S-F8>      <Plug>GoldenViewSwitchToggle
+" nmap <silent> <C-J>       <Plug>GoldenViewNext
+" nmap <silent> <C-K>       <Plug>GoldenViewPrevious
+nnoremap <c-j> <C-W>w
+nnoremap <c-k> <C-W>W
+nnoremap <c-n> :sp<cr>
+nnoremap <c-m> :vsp<cr>
+
+" NERDTree
+nmap <leader>nt <plug>NERDTreeTabsToggle<cr>
 
 " Comments at beginning of line respecting indentation
-map ,# :s/^\(\s*\)/\1#/<cr>:noh <cr>
-map ,/ :s/^\(\s*\)/\1\/\//<CR>:noh <CR>
-map ,> :s/^\(\s*\)/\1> /<CR>:noh <CR>
-map ," :s/^\(\s*\)/\1\"/<CR>:noh <CR>
-map ,% :s/^\(\s*\)/\1%/<CR>:noh <CR>
-map ,! :s/^\(\s*\)/\1!/<CR>:noh <CR>
-map ,; :s/^\(\s*\)/\1;/<CR>:noh <CR>
-map ,- :s/^\(\s*\)/\1--/<CR>:noh <CR>
+" map <leader># :s/^\(\s*\)/\1#/<cr>:noh <cr>
+" map <leader>/ :s/^\(\s*\)/\1\/\//<CR>:noh <CR>
+" map <leader>> :s/^\(\s*\)/\1> /<CR>:noh <CR>
+" map <leader>" :s/^\(\s*\)/\1\"/<CR>:noh <CR>
+" map <leader>% :s/^\(\s*\)/\1%/<CR>:noh <CR>
+" map <leader>! :s/^\(\s*\)/\1!/<CR>:noh <CR>
+" map <leader>; :s/^\(\s*\)/\1;/<CR>:noh <CR>
+" map <leader>- :s/^\(\s*\)/\1--/<CR>:noh <CR>
+map <leader>/ :Commentary<CR>
 
 map <leader>d/ :s/^\(\s*\)\/\//\1/<cr>:noh <cr>
 
@@ -184,12 +253,24 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
 onoremap <silent> [k :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]k :call NextIndent(1, 1, 1, 1)<CR>
 
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Python json tool
+nmap <leader>json :%!python -m json.tool<cr>gg=G
+
+" jsdoc
+nnoremap <leader>jsd :JsDoc<CR>
+
+
 augroup startup
     " Prevent duplicated autocmds
     " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
     au!
 
     au bufwritepost .vimrc source $MYVIMRC
+    au bufwritepost .gvimrc source $MYGVIMRC
     " close preview window automatically when we move around
     "au CursorMovedI * if pumvisible() == 0|pclose|endif
     "au InsertLeave * if pumvisible() == 0|pclose|endif
@@ -197,7 +278,7 @@ augroup startup
     " Filetype settings
     au BufRead,BufNewFIle *.scss setlocal filetype=scss
     au BufRead,BufNewFile *.php setlocal filetype=php.html
-    "au BufRead,BufNewFile *.coffee setlocal filetype=coffee sw=2 ts=2 sts=2
+    "au BufRead,BufNewFile *.coffee setlocal filetype=coffee
     "au BufRead,BufNewFile *.js setlocal sw=2 ts=2 sts=2
     au BufRead,BufNewFile *.hamlpy setlocal filetype=haml
     au BufRead,BufNewFile *.py setlocal filetype=pydjango.python

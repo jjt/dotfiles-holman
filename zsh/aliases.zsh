@@ -3,6 +3,7 @@ alias hack='fc -l 1 | ack'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias ns='npm search'
+alias psag='ps aux | ag'
 
 alias bis='bower install --save'
 alias bs='bower search'

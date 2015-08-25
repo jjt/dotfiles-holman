@@ -1,33 +1,5 @@
-config keyboardLayout colemak
-config defaultToCurrentScreen true
-config nudgePercentOf screenSize
-config resizePercentOf screenSize
+alias dot-slate ~/.dotfiles/slate
 
-alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
-alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias rightthird move screenOriginX+screenSizeX/3+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
-alias middlethird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
-alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
-alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
-alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
-alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
-alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
-alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
-
-bind 4:ctrl hint ARSTDHNEIO
-
-# Location - Sets the window to the specified location.
-bind f:shift;ctrl ${full}
-bind k:shift;ctrl ${tophalf}
-bind j:shift;ctrl ${bottomhalf}
-bind h:shift;ctrl ${lefthalf}
-#bind h:shift;alt;ctrl ${leftthird}
-bind i:shift;alt;ctrl ${middlethird}
-bind b:shift;ctrl ${bottomleft}
-bind y:shift;ctrl ${topleft}
-bind l:shift;ctrl ${righthalf}
-#bind l:shift;alt;ctrl ${rightthird}
-bind .:shift;ctrl ${bottomright}
-bind p:shift;ctrl ${topright}
+source ${dot-slate}/config.slate
+source ${dot-slate}/aliases.slate
+source ${dot-slate}/bindings.slate

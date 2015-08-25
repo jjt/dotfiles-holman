@@ -1,0 +1,5 @@
+config keyboardLayout colemak
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config orderScreensLeftToRight true  # Left most screen is 0, according to System Preferences Arrangement

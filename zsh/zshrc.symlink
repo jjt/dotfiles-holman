@@ -13,7 +13,7 @@ export EDITOR='mvim'
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
 export PATH=/usr/local/share/npm/bin:$PATH
 
-PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator_completion ]] && source $HOME/.tmuxinator/scripts/tmuxinator_completion 
@@ -32,7 +32,7 @@ vs() {
 
 
 # Walmart/Java
-PATH="./node_modules/.bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
 
 function setjdk() {
   if [ $# -ne 0 ]; then

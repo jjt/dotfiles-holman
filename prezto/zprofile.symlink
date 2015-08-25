@@ -75,3 +75,7 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
