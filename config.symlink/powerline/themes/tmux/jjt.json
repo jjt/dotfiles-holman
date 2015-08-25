@@ -1,0 +1,21 @@
+{
+    "default_module": "powerline.segments.common",
+    "segments": {
+        "right": [
+          {
+              "name": "date",
+              "args": {"format": "%H:%M"},
+              "before": "",
+              "highlight_group": ["time", "date"],
+              "divider_highlight_group": "time:divider"
+
+          },
+          {
+              "name": "hostname"
+
+          }
+        ]
+
+    }
+
+}

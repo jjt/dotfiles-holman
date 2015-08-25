@@ -1,0 +1,41 @@
+set -g default-shell /bin/zsh
+#set -g default-terminal screen-256color
+#setw -g xterm-keys on
+
+set -g status-keys vi
+set -g bell-action any
+set -g visual-bell on
+set -g status-utf8 on
+set -g status-position top
+
+set -s escape-time 0 # Vim delays otherwise
+
+setw -g mode-keys vi
+setw -g monitor-activity on
+
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+
+bind | split-window -h
+bind - split-window -v
+bind e previous-window
+bind f next-window
+bind k select-pane -t :.-
+bind j select-pane -t :.+
+bind -r C-j resize-pane -D
+bind -r C-k resize-pane -U
+bind -r C-h resize-pane -L
+bind -r C-l resize-pane -R
+bind r source-file ~/.tmux.conf
+bind C-o next-layout
+bind : command-prompt
+
+set -g pane-active-border-fg white
+set -g pane-active-border-bg black
+set -g pane-border-fg colour240
+set -g pane-border-bg black
+
+#source "$HOME/.config/powerline/powerline-tmux-binding.conf"

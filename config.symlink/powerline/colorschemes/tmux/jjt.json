@@ -1,0 +1,24 @@
+{
+    "name": "Default color scheme for terminal prompts",
+    "groups": {
+        "background:divider": { "fg": "gray5", "bg": "gray0"  },
+        "session": { "fg": "black", "bg": "gray10", "attr": ["bold"]  },
+        "date": { "fg": "black", "bg": "purpmedbri"  },
+        "time": { "fg": "black", "bg": "darkestpurple", "attr": ["bold"]  },
+        "time:divider": { "fg": "gray5", "bg": "gray2"  },
+        "hostname": { "fg": "darkestpurple", "bg": "purpbri", "attr": ["bold"]  },
+        "weather": { "fg": "gray8", "bg": "gray0"  },
+        "weather_temp_cold": { "fg": "weather_temp_cold", "bg": "gray0"  },
+        "weather_temp_hot": { "fg": "weather_temp_hot", "bg": "gray0"  },
+        "weather_condition_☼": { "fg": "weather_condition_hot", "bg": "gray0"  },
+        "weather_condition_❅": { "fg": "weather_condition_cold", "bg": "gray0"  },
+        "weather_condition_☔": { "fg": "weather_condition_cold", "bg": "gray0"  },
+        "uptime": { "fg": "gray8", "bg": "gray0"  },
+        "external_ip": { "fg": "gray8", "bg": "gray0"  },
+        "network_load": { "fg": "gray8", "bg": "gray0"  },
+        "system_load": { "fg": "gray8", "bg": "gray0"  },
+        "system_load_good": { "fg": "system_load_good", "bg": "gray0"  },
+        "system_load_bad": { "fg": "system_load_bad", "bg": "gray0"  },
+        "system_load_ugly": { "fg": "system_load_ugly", "bg": "gray0"  }
+    }
+}
