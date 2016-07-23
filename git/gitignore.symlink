@@ -9,3 +9,4 @@ npm-debug.log
 .Vagrantfile
 .up
 *.SECRET*
+*.GITIGNORE*

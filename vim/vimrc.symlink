@@ -1,16 +1,19 @@
 set nocompatible
 
+let loaded_matchparen = 1
+
 " Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'gmarik/vundle'
 
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
+let g:airline_theme = 'light'
 let g:ctrlp_working_path_mode = 0
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -23,14 +26,10 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 let g:gist_post_private = 1
 
-"Plugin 'spolu/dwm.vim'
-" Goldenview
-" let g:goldenview__enable_default_mapping = 0
-" Plugin 'zhaocai/GoldenView.Vim'
 Plugin 'triglav/vim-visual-increment'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'terryma/vim-expand-region'
-Plugin 'blueyed/vim-diminactive'
+Plugin 'chriskempson/base16-vim'
 
 "vim-snipmate deps
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -48,8 +47,10 @@ Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'mxw/vim-jsx'
+Plugin 'evidens/vim-twig'
+let g:jsx_ext_required = 0
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx'
+" Plugin 'mtscout6/vim-cjsx'
 Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'scrooloose/syntastic'
@@ -60,12 +61,13 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { "mode": "passive" }
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
+let g:ctrlp_show_hidden = 1
 call vundle#end()
 
 "JsDoc
@@ -76,7 +78,7 @@ let g:jsdoc_allow_input_prompt = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " diminactive
-hi ColorColumn ctermbg=0 guibg=#222222 guifg=#888888
+colorscheme base16-tomorrow
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -87,27 +89,30 @@ filetype plugin indent on     " enable loading indent file for filetype
 set t_Co=256
 syntax on
 set background=dark
-colorscheme wombat256mod
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set relativenumber
 set number
 set wildmenu                  " Menu completion in command mode on <Tab>
+set regexpengine=1
 set wildmode=full             " <Tab> cycles between all matching choices.
 set noautochdir
 set sessionoptions=buffers,tabpages,curdir
 set winminheight=0
 set winminwidth=0
 set textwidth=0
+set spell spelllang=en_us
 
 " Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
+hi CursorLine ctermbg=235 guibg=#444444
+highlight ColorColumn ctermbg=235 guibg=#565F3F
 set ruler                   " show the cursor position all the time
 set nostartofline           " Avoid moving cursor to BOL when jumping around
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 set scrolloff=8             " Keep 8 context lines above and below the cursor
 set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
-set showmatch               " Briefly jump to a paren once it's balanced
-set matchtime=2             " (for only .2 seconds).
+" set showmatch               " Briefly jump to a paren once it's balanced
+" set matchtime=2             " (for only .2 seconds).
 set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
@@ -116,7 +121,8 @@ set shiftwidth=2            " but an indent level is 2 spaces wide.
 set softtabstop=2           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set shiftround              " rounds indent to a multiple of shiftwidth
-set matchpairs+=<:>         " show matching <> (html mainly) as well
+"
+" set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=manual       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 set foldlevelstart=99            " don't fold by default
@@ -175,7 +181,7 @@ map <leader>V :source $MYVIMRC<CR>
 map <leader>gv :tabe $MYGVIMRC<CR>
 map <leader>GV :source $MYGVIMRC<CR>
 
-map <leader>wst :w !sudo tee %
+map <leader>wst :w !sudo tee > /dev/null %
 map <leader>no :noh<CR>
 nmap <leader>a <Esc>:Ag!<Space>
 map <leader>rs <ESC>:call ReloadAllSnippets() <CR>
@@ -197,6 +203,10 @@ nmap <leader>sar :!sudo /usr/sbin/service apache2 restart<cr>
 nnoremap <leader>ln :set relativenumber!<cr>
 nmap <leader>sa :bufdo w
 nmap <leader>fw :FixWhitespace<cr>
+nmap <leader>ln :lnext<cr>
+nmap <leader>lp :lprev<cr>
+
+imap jj <esc>
 
 nnoremap <Leader>stm :SyntasticToggleMode<cr>
 nnoremap <Leader>stc :SyntasticCheck<cr>
@@ -288,8 +298,11 @@ augroup startup
     "autocmd BufEnter * lcd %:p:h
 augroup END
 
-
-
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal colorcolumn=80 cul
+    au WinLeave * setlocal colorcolumn=0 nocul
+augroup END
 
 function! SetTabStops(num)
     let &l:ts = a:num

@@ -20,6 +20,8 @@ alias grunt='nocorrect grunt'
 # Homebrew vim instead of system
 alias vim='/usr/local/bin/vim'
 
+alias ls='ls --color=auto'
+
 # because typing 'cd' is A LOT of work!!
 alias ..='cd ../'
 alias ...='cd ../../'

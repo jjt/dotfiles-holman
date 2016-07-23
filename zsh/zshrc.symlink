@@ -7,7 +7,7 @@ fi
 # much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export EDITOR='mvim'
+export EDITOR='nvim'
 
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
@@ -30,6 +30,12 @@ vs() {
  vagrant ssh -c "$args"
 }
 
+# PHP
+export PATH="$PATH:/usr/local/mysql/bin"
+
+# OpenWRT builds
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#export PATH="/Volumes/OpenWrt/staging_dir/host/bin:/Volumes/OpenWrt/staging_dir/
 
 # Walmart/Java
 export PATH="./node_modules/.bin:$PATH"
@@ -50,3 +56,7 @@ function removeFromPath() {
 setjdk 1.7
 
 autoload -U zmv
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+eval "$(direnv hook zsh)"
+compctl -g '~/.itermocil/*(:t:r)' itermocil

@@ -1,5 +1,25 @@
-alias dot-slate ~/.dotfiles/slate
+# Copy this file into ~/.slate and modify to your heart's content
+# Set PATH_TO_AC_SLATER to point at this repo
+alias ac-slater-path ~/.ac-slater
 
-source ${dot-slate}/config.slate
-source ${dot-slate}/aliases.slate
-source ${dot-slate}/bindings.slate
+# Aliases for key modifiers
+# https://github.com/mattr-/slate#allowed-keys
+alias ac-slater-key-modifier        shift;ctrl
+alias ac-slater-key-modifier-super  shift;ctrl;alt
+
+# Pre-AC custom config goes here, ex:
+config keyboardLayout colemak
+
+# Bring AC Slater to the party
+# Comment out any parts that you don't want
+source ${ac-slater-path}/config.slate
+source ${ac-slater-path}/origin-dock-left.slate
+source ${ac-slater-path}/grid.slate
+source ${ac-slater-path}/layout.slate
+source ${ac-slater-path}/bindings-colemak.slate
+
+# Middle of screen, 1/2 width
+bind e:${ac-slater-key-modifier-super} move ${x3};${y0} ${w6};${h12}
+
+# Post-AC custom config here, ex:
+bind 4:ctrl hint ARSTDHNEIO

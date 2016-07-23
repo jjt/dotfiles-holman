@@ -2,6 +2,8 @@
 
 name: hexo
 root: ~/projects/hexo
+attach: false
+post: tmux -CC attach
 
 # Optional tmux socket
 # socket_name: foo
@@ -22,5 +24,6 @@ windows:
   - shell:
       layout: main-vertical
       panes:
+        -
         -
         - npm run watch

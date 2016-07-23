@@ -5,3 +5,4 @@ tmuxinator.symlink/*.yml
 config.symlink/configstore
 config.symlink/hub
 !tmuxinator.symlink/*
+config.symlink/browser-launcher2/*
