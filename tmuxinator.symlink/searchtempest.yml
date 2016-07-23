@@ -1,0 +1,10 @@
+name: simpletemplate
+root: ~/projects/searchtempest
+
+windows:
+  - main:
+      layout: main-vertical
+      panes:
+        - nvim .
+        -
+        -
