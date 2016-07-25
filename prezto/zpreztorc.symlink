@@ -34,6 +34,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'homebrew' \
   'completion' \
+  'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
@@ -41,7 +43,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-#zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -72,6 +74,8 @@ zstyle ':prezto:load' pmodule \
 
 # Set the search globbing flags.
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 #
 # Pacman

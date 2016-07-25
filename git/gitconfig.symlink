@@ -1,0 +1,33 @@
+[user]
+	email = jason@jasontrill.com
+	name = Jason Trill
+[push]
+	default = upstream
+[branch]
+	autosetuprebase = always
+[core]
+	excludesfile = /Users/jjt/.gitignore
+	editor = mvim -f
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
+[difftool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED
+[alias]
+  br = checkout -b
+  brs = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) %(color:green)%(committerdate:relative)%(color:reset) %(color:red)%(objectname:short)%(color:reset) %(authorname) | %(contents:subject)'
+  ca = commit --amend
+  cl = clone
+  c- = checkout -- .
+	d = difftool
+  pl = log --pretty=oneline
+  pp = pull -p
+  s = status
+
+[github]
+	user = jjt
+[hub]
+	host = wmgec
+	host = gecgithub01.walmart.com
+	host = wmgec

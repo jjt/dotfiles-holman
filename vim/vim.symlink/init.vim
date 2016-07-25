@@ -18,7 +18,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
+" Plugin 'rking/ag.vim'
 Plugin 'mantiz/vim-plugin-dirsettings'
 Plugin 'mhartington/oceanic-next'
 Plugin 'mattn/webapi-vim'
@@ -31,10 +31,16 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'chriskempson/base16-vim'
 
 "vim-snipmate deps
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
+"
+Plugin 'ervandew/supertab'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Language-specific plugs
 Plugin 'nono/vim-handlebars'
@@ -43,6 +49,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'mxw/vim-jsx'
@@ -64,6 +71,17 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { "mode": "passive" }
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+ 
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 let g:ctrlp_show_hidden = 1
@@ -75,6 +93,15 @@ let g:jsdoc_allow_input_prompt = 1
 
 " NERDTree
 let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" Python
+let g:python_host_prog = '/Users/jjt/.pyenv/shims/python'
+let g:python3_host_prog = '/Users/jjt/.pyenv/shims/python3'
+
+" Ag/Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -188,15 +215,13 @@ map <leader>GV :source $MYGVIMRC<CR>
 
 map <leader>wst :w !sudo tee > /dev/null %
 map <leader>no :noh<CR>
-nmap <leader>a <Esc>:Ag!<Space>
+nmap <leader>a <Esc>:Ack!<Space>
 map <leader>rs <ESC>:call ReloadAllSnippets() <CR>
 nmap <leader>ss :wa<CR>:call DeleteHiddenBuffers()<CR>:mksession! ~/.vim/sessions/
 nmap <leader>so :wa<CR>:so ~/.vim/sessions/
 nmap <silent> <leader>tp :set paste!<cr>
 nnoremap <C-l> :tabn <CR>
 nnoremap <C-h> :tabp <CR>
-nnoremap <C-L> :tabn <CR>
-nnoremap <C-H> :tabp <CR>
 nnoremap <leader>tc :tabclose<CR>
 map <leader>dcl :%s/^.*console\.log.*\n//gc <CR>
 map <leader>ccl :%s/\(^.*\)\(console\.log.*\n\)/\1\/\/\2/gc <CR>
@@ -357,6 +382,20 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
   endwhile
 endfunction
 
+function! TabMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  if empty(message)
+    echoerr "no output"
+  else
+    " use "new" instead of "tabnew" below if you prefer split windows instead of tabs
+    tabnew
+    setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted nomodified
+    silent put=message
+  endif
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
 " Use Ag (Silver Searcher) for CtrlP backend
 if executable('ag')
