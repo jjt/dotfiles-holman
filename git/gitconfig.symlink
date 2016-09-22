@@ -7,7 +7,7 @@
 	autosetuprebase = always
 [core]
 	excludesfile = /Users/jjt/.gitignore
-	editor = mvim -f
+	editor = nvim -f
 [diff]
 	tool = nvimdiff
 [difftool]

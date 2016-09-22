@@ -11,36 +11,25 @@ Plugin 'gmarik/vundle'
 " Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-commentary'
-" Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-let g:ctrlp_working_path_mode = 0
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mileszs/ack.vim'
-" Plugin 'rking/ag.vim'
 Plugin 'mantiz/vim-plugin-dirsettings'
 Plugin 'mhartington/oceanic-next'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-let g:gist_post_private = 1
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'triglav/vim-visual-increment'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'terryma/vim-expand-region'
 Plugin 'chriskempson/base16-vim'
-
-"vim-snipmate deps
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
-"
 Plugin 'ervandew/supertab'
-
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
 
 " Language-specific plugs
 Plugin 'nono/vim-handlebars'
@@ -54,12 +43,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'mxw/vim-jsx'
 Plugin 'evidens/vim-twig'
-let g:jsx_ext_required = 0
 Plugin 'kchmck/vim-coffee-script'
 " Plugin 'mtscout6/vim-cjsx'
 Plugin 'elixir-lang/vim-elixir'
-
 Plugin 'scrooloose/syntastic'
+
+let g:gist_post_private = 1
+"Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -75,7 +65,7 @@ let g:syntastic_mode_map = { "mode": "passive" }
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
- 
+
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -83,6 +73,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "CtrlP
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 let g:ctrlp_show_hidden = 1
 call vundle#end()
@@ -102,6 +93,9 @@ let g:python3_host_prog = '/Users/jjt/.pyenv/shims/python3'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+"JSX
+let g:jsx_ext_required = 0
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
