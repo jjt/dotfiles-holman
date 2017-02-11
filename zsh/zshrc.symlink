@@ -38,25 +38,28 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 #export PATH="/Volumes/OpenWrt/staging_dir/host/bin:/Volumes/OpenWrt/staging_dir/
 
 # Walmart/Java
-export PATH="./node_modules/.bin:$PATH"
+# export PATH="./node_modules/.bin:$PATH"
 
-function setjdk() {
-  if [ $# -ne 0 ]; then
-    removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-    if [ -n "${JAVA_HOME+x}" ]; then
-      removeFromPath $JAVA_HOME
-    fi
-    export JAVA_HOME=`/usr/libexec/java_home -v $@`
-    export PATH=$JAVA_HOME/bin:$PATH
-  fi
-}
-function removeFromPath() {
- export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
-}
-setjdk 1.7
+# function setjdk() {
+#   if [ $# -ne 0 ]; then
+#     removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+#     if [ -n "${JAVA_HOME+x}" ]; then
+#       removeFromPath $JAVA_HOME
+#     fi
+#     export JAVA_HOME=`/usr/libexec/java_home -v $@`
+#     export PATH=$JAVA_HOME/bin:$PATH
+#   fi
+# }
+# function removeFromPath() {
+#  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+# }
+# setjdk 1.7
 
 autoload -U zmv
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 eval "$(direnv hook zsh)"
 compctl -g '~/.itermocil/*(:t:r)' itermocil
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

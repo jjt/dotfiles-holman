@@ -4,7 +4,7 @@ let loaded_matchparen = 1
 
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/vundle'
 
@@ -12,8 +12,9 @@ Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 " Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-let g:airline_theme = 'light'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'base16_default'
 let g:ctrlp_working_path_mode = 0
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -78,7 +79,8 @@ let g:jsdoc_allow_input_prompt = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " diminactive
-colorscheme base16-tomorrow
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -101,6 +103,7 @@ set winminheight=0
 set winminwidth=0
 set textwidth=0
 set spell spelllang=en_us
+set clipboard=unnamed
 
 " Moving Around/Editing
 set cursorline              " have a line indicate the cursor location

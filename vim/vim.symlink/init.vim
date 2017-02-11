@@ -12,7 +12,8 @@ Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -121,10 +122,11 @@ syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set background=dark
-colorscheme OceanicNext
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " Airline
-let g:airline_theme='oceanicnext'
+let g:airline_theme='base16_default'
 let g:airline_powerline_fonts = 1
 
 " Moving Around/Editing
