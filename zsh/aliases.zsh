@@ -34,4 +34,4 @@ alias .........='cd ../../../../../../../../'
 alias ..........='cd ../../../../../../../../../'
 alias ...........='cd ../../../../../../../../../../'
 
-
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"

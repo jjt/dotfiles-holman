@@ -1,5 +1,5 @@
 [user]
-	email = jason@jasontrill.com
+	email = jason@jjt.io
 	name = Jason Trill
 [push]
 	default = upstream
@@ -21,6 +21,7 @@
   cl = clone
   c- = checkout -- .
 	d = difftool
+  mtf = merge --strategy-option=theirs
   pl = log --pretty=oneline
   pp = pull -p
   s = status
@@ -31,3 +32,8 @@
 	host = wmgec
 	host = gecgithub01.walmart.com
 	host = wmgec
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

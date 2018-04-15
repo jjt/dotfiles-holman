@@ -7,3 +7,5 @@ config.symlink/hub
 config.symlink/browser-launcher2/*
 config.symlink/thefuck/__pycache__
 config.symlink/.mono/*
+config.symlink/pgcli/history
+config.symlink/pgcli/log

@@ -20,7 +20,6 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 [[ -s $HOME/.nvm/nvm/sh ]] && source $HOME/.nvm/nvm.sh
 
 eval "$(pyenv init -)"
-eval "$(rbenv init -)"
 source $HOME/.nvm/nvm.sh
 source $HOME/.dotfiles/zsh/aliases.zsh
 
@@ -29,6 +28,8 @@ vs() {
  args=$(printf "%s " "$@") # concatenate arguments into single string
  vagrant ssh -c "$args"
 }
+
+export PATH="$(yarn global bin):$PATH"
 
 # PHP
 export PATH="$PATH:/usr/local/mysql/bin"
@@ -63,3 +64,5 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+source <(awless completion zsh)
+eval "$(rbenv init -)"

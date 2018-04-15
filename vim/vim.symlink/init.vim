@@ -1,66 +1,70 @@
 set nocompatible
+filetype off
 
 let loaded_matchparen = 1
 
 " Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'mileszs/ack.vim'
-Plugin 'mantiz/vim-plugin-dirsettings'
-Plugin 'mhartington/oceanic-next'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'zhaocai/GoldenView.Vim'
+" Plugin 'mileszs/ack.vim'
+" Plugin 'mantiz/vim-plugin-dirsettings'
+" Plugin 'mhartington/oceanic-next'
+" Plugin 'mattn/webapi-vim'
+" Plugin 'mattn/gist-vim'
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'ternjs/tern_for_vim'
 
-Plugin 'triglav/vim-visual-increment'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'terryma/vim-expand-region'
+" Plugin 'triglav/vim-visual-increment'
+" Plugin 'bronson/vim-trailing-whitespace'
+" Plugin 'terryma/vim-expand-region'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'mhinz/vim-grepper'
+Plugin 'romainl/vim-qf'
 
-" Language-specific plugs
-Plugin 'nono/vim-handlebars'
-Plugin 'groenewege/vim-less'
+" Plugin 'nono/vim-handlebars'
+" Plugin 'groenewege/vim-less'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'wavded/vim-stylus'
-Plugin 'ternjs/tern_for_vim'
+" Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'digitaltoad/vim-jade'
+" Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'mxw/vim-jsx'
-Plugin 'evidens/vim-twig'
+" Plugin 'heavenshell/vim-jsdoc'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'evidens/vim-twig'
 Plugin 'kchmck/vim-coffee-script'
-" Plugin 'mtscout6/vim-cjsx'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'scrooloose/syntastic'
+" Plugin 'letientai299/vim-react-snippets', { 'branch': 'es6' }
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'scrooloose/syntastic'
+
+call vundle#end()
 
 let g:gist_post_private = 1
-"Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { "mode": "passive" }
+" "Syntastic
+" let g:syntastic_javascript_checkers = ['eslint']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = { "mode": "passive" }
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -68,16 +72,17 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "CtrlP
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 let g:ctrlp_show_hidden = 1
-call vundle#end()
+let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 "JsDoc
 let g:jsdoc_default_mapping = 0
@@ -98,8 +103,14 @@ endif
 "JSX
 let g:jsx_ext_required = 0
 
+"vim-qf
+let g:qf_mapping_ack_style = 1
+
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+" Goldenview
+let g:goldenview__enable_default_mapping = 0
 
 " Basic Settings
 filetype on                   " try to detect filetypes
@@ -116,6 +127,7 @@ set winminheight=0
 set winminwidth=0
 set textwidth=0
 set spell spelllang=en_us
+set hid
 
 " Syntax/color
 syntax enable
@@ -199,7 +211,7 @@ let mapleader=","
 map <space> <leader>
 
 cabbr %% <C-R>=expand('%:p:h')<CR>
-
+     
 map ; :
 noremap ;; ;
 nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -231,6 +243,9 @@ nmap <leader>sa :bufdo w
 nmap <leader>fw :FixWhitespace<cr>
 nmap <leader>ln :lnext<cr>
 nmap <leader>lp :lprev<cr>
+nmap <leader>rg :GrepperRg<Space>
+nmap <leader>sw :set wrap!<cr>
+
 
 imap jj <esc>
 
@@ -238,7 +253,7 @@ nnoremap <Leader>stm :SyntasticToggleMode<cr>
 nnoremap <Leader>stc :SyntasticCheck<cr>
 
 " CtrlP MRU mode
-nnoremap <leader>p :CtrlPMRUFiles<cr>
+nnoremap <c-p> :CtrlPMRUFiles<cr>
 
 " DWM plugin
 "nmap <leader>wf <Plug>DWMFocus
@@ -306,6 +321,7 @@ augroup startup
     au!
 
     au bufwritepost .vimrc source $MYVIMRC
+    au bufwritepost init.vim source $MYVIMRC
     au bufwritepost .gvimrc source $MYGVIMRC
     " close preview window automatically when we move around
     "au CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -394,8 +410,14 @@ endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
 " Use Ag (Silver Searcher) for CtrlP backend
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   let g:ctrlp_use_caching = 0
+" endif
+
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
 endif
 
