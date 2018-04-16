@@ -9,3 +9,7 @@ config.symlink/thefuck/__pycache__
 config.symlink/.mono/*
 config.symlink/pgcli/history
 config.symlink/pgcli/log
+oni.symlink/backup/*
+oni.symlink/sessions/*
+oni.symlink/swap/*
+oni.symlink/undo/*

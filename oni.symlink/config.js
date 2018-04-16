@@ -1,0 +1,44 @@
+// For more information on customizing Oni,
+// check out our wiki page:
+// https://github.com/onivim/oni/wiki/Configuration
+
+activate = oni => {
+    console.log("config activated")
+
+    // Input
+    //
+    // Add input bindings here:
+    //
+    oni.input.bind("<c-enter>", () => console.log("Control+Enter was pressed"))
+    oni.input.bind("<c-p>", "quickOpen.show")
+    //
+    // Or remove the default bindings here by uncommenting the below line:
+    //
+    // oni.input.unbind("<c-p>")
+}
+
+const deactivate = () => {
+    console.log("config deactivated")
+}
+
+module.exports = {
+    activate,
+    deactivate,
+    //add custom config here, such as
+
+    "ui.colorscheme": "nord",
+    "oni.loadInitVim": "~/.oni/init.vim",
+    "experimental.markdownPreview.enabled": true,
+    "oni.hideMenu": true,
+    "sidebar.enabled": false,
+
+    "oni.useDefaultConfig": false,
+    //"oni.bookmarks": ["~/Documents"],
+    //"oni.loadInitVim": false,
+    //"editor.fontSize": "14px",
+    //"editor.fontFamily": "Monaco",
+
+    // UI customizations
+    "ui.animations.enabled": true,
+    "ui.fontSmoothing": "auto",
+}
