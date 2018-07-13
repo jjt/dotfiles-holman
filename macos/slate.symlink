@@ -13,7 +13,7 @@ config keyboardLayout colemak
 # Bring AC Slater to the party
 # Comment out any parts that you don't want
 source ${ac-slater-path}/config.slate
-source ${ac-slater-path}/origin-dock-left.slate
+source ${ac-slater-path}/origin.slate
 source ${ac-slater-path}/grid.slate
 source ${ac-slater-path}/layout.slate
 source ${ac-slater-path}/bindings-colemak.slate
