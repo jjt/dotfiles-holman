@@ -7,11 +7,11 @@
 	autosetuprebase = always
 [core]
 	excludesfile = /Users/jjt/.gitignore
-	editor = nvim -f
+	editor = "code-insiders --wait"
 [diff]
-	tool = nvimdiff
-[difftool]
-	prompt = false
+	tool = default-difftool
+[difftool "default-difftool"]
+  cmd = code-insiders --wait --diff $LOCAL $REMOTE $MERGED
 [difftool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED
 [alias]

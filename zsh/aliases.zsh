@@ -4,6 +4,7 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias ns='npm search'
 alias psag='ps aux | rg'
+alias ls='ls --color=auto'
 
 alias bis='bower install --save'
 alias bs='bower search'

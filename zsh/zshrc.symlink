@@ -14,7 +14,7 @@ export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossP
 export PATH=/usr/local/share/npm/bin:$PATH
 
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-export PATH="/usr/local/Cellar/postgresql@9.6/9.6.8/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@9.6/9.6.9/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator_completion ]] && source $HOME/.tmuxinator/scripts/tmuxinator_completion 
