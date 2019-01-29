@@ -1,0 +1,9 @@
+Log into iCloud
+
+Install 1Password 6
+Install Spark (via App Store)
+
+Configure VSCodeInsiders sync
+Install iterm2 color theme
+Install tj/n
+Install chruby

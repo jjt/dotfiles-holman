@@ -10,3 +10,4 @@ npm-debug.log
 .up
 *.SECRET*
 *.GITIGNORE*
+.vscode

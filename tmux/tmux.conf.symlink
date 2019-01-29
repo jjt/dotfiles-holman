@@ -1,4 +1,4 @@
-set -g default-shell /bin/zsh
+set -g default-shell /usr/local/bin/zsh
 #setw -g xterm-keys on
 
 set -g prefix C-a
@@ -38,7 +38,10 @@ set -g pane-active-border-bg black
 set -g pane-border-fg colour240
 set -g pane-border-bg black
 
+# 0 is farrrrrrrrrrrrrr away on the keyboard
+set -g base-index 1
+setw -g pane-base-index 1
 # Fix pbcopy problems
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+# set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 #source "$HOME/.config/powerline/powerline-tmux-binding.conf"

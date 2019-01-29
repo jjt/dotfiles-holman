@@ -13,8 +13,7 @@ export EDITOR='nvim'
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
 export PATH=/usr/local/share/npm/bin:$PATH
 
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-export PATH="/usr/local/Cellar/postgresql@9.6/9.6.9/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@9.6/9.6.10_1/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator_completion ]] && source $HOME/.tmuxinator/scripts/tmuxinator_completion 
@@ -74,6 +73,7 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 export PATH="$PATH:/Users/jjt/projects/depot_tools"
 
+export GITHUB_OAUTH_TOKEN=$(pass github/gruntwork/oauth-token)
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -81,3 +81,5 @@ export PATH="$PATH:/Users/jjt/projects/depot_tools"
 # opam configuration
 test -r /Users/jjt/.opam/opam-init/init.zsh && . /Users/jjt/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+if [ -n "${RUNCMD+1}" ]; then CMD="$RUNCMD"; unset RUNCMD; eval "$RUNCMD"; fi

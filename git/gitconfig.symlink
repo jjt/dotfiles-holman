@@ -24,6 +24,7 @@
   mtf = merge --strategy-option=theirs
   pl = log --pretty=oneline
   pp = pull -p
+  puul = pull
   s = status
 
 [github]

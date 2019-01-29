@@ -13,3 +13,4 @@ oni.symlink/backup/*
 oni.symlink/sessions/*
 oni.symlink/swap/*
 oni.symlink/undo/*
+config.symlink/direnv/allow

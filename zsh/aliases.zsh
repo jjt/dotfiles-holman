@@ -36,3 +36,12 @@ alias ..........='cd ../../../../../../../../../'
 alias ...........='cd ../../../../../../../../../../'
 
 alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+
+# Yarn
+alias yad="yarn add --dev"
+alias ya="yarn add"
+alias ylp="yarn list --pattern"
+
+# Ruby
+alias be="bundle exec"
+
