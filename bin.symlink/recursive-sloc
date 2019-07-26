@@ -1,0 +1,8 @@
+#!/bin/bash
+pwd
+i=0
+for d in $(find . -type d | sed '/.*__tests__.*/d'); do
+  num=$(sloc $d | rg 'Source' | sed 's/.*Source :  \(\d+\)/\1/g')
+  echo "$i - $d - $num"
+  let i=i+1
+done

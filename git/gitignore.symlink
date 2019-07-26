@@ -11,3 +11,4 @@ npm-debug.log
 *.SECRET*
 *.GITIGNORE*
 .vscode
+.code-workspace

@@ -14,3 +14,4 @@ oni.symlink/sessions/*
 oni.symlink/swap/*
 oni.symlink/undo/*
 config.symlink/direnv/allow
+config.symlink/yarn/global/yarn-error.log

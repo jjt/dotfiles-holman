@@ -22,4 +22,4 @@ source ${ac-slater-path}/bindings-colemak.slate
 bind e:${ac-slater-key-modifier-super} move ${x3};${y0} ${w6};${h12}
 
 # Post-AC custom config here, ex:
-bind 4:ctrl hint ARSTDHNEIO
+# bind 4:ctrl:shift hint ARSTDHNEIO

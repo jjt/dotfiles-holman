@@ -281,7 +281,7 @@ augroup startup
     " Prevent duplicated autocmds
     " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
     au!
-
+    autocmd filetype crontab setlocal nobackup nowritebackup
     au bufwritepost .vimrc source $MYVIMRC
     au bufwritepost .gvimrc source $MYGVIMRC
     " close preview window automatically when we move around

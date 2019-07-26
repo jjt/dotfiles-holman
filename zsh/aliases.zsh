@@ -7,6 +7,7 @@ alias psag='ps aux | rg'
 alias ls='ls --color=auto'
 alias bat="bat --paging never"
 alias cat="bat"
+alias fbranch='`git --no-pager branch | fzf`'
 
 alias bis='bower install --save'
 alias bs='bower search'

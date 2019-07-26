@@ -75,7 +75,6 @@ export PATH="$PATH:/Users/jjt/projects/depot_tools"
 
 export GITHUB_OAUTH_TOKEN=$(pass github/gruntwork/oauth-token)
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # opam configuration
@@ -83,3 +82,9 @@ test -r /Users/jjt/.opam/opam-init/init.zsh && . /Users/jjt/.opam/opam-init/init
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 if [ -n "${RUNCMD+1}" ]; then CMD="$RUNCMD"; unset RUNCMD; eval "$RUNCMD"; fi
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+export PATH=$M2_HOME/bin:$PATH
+
+eval "$(jira --completion-script-zsh)"

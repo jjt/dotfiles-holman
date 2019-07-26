@@ -1,19 +1,22 @@
 {
   "dependencies": {
     "@pwa/cli": "^0.1.2",
+    "bundle-phobia-cli": "^0.11.0",
     "chrome-remote-interface": "^0.18.0",
     "create-next-app": "^0.5.9",
     "create-razzle-app": "^2.4.0",
-    "create-react-app": "^1.5.2",
     "create-react-native-app": "^1.0.0",
     "dotenv": "^6.0.0",
     "dotenv-cli": "^1.4.0",
     "increase-memory-limit": "^1.0.6",
     "json-diff": "^0.5.2",
+    "madge": "^3.4.3",
     "micro-proxy": "^1.1.0",
     "ndb": "^1.0.42",
     "node-gyp": "^3.6.2",
-    "sloc": "^0.2.0",
+    "sloc": "^0.2.1",
+    "stylelint": "^9.10.1",
+    "surge": "^0.20.1",
     "taskbook": "^0.1.1",
     "tldr": "^3.2.6"
   }
