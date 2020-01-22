@@ -13,7 +13,7 @@ export EDITOR='nvim'
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/CrossPack-AVR/bin:$HOME/bin:$HOME/.rbenv/bin
 export PATH=/usr/local/share/npm/bin:$PATH
 
-export PATH="/usr/local/Cellar/postgresql@9.6/9.6.10_1/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator_completion ]] && source $HOME/.tmuxinator/scripts/tmuxinator_completion 

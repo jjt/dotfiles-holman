@@ -1,6 +1,0 @@
-authtoken: 5TByBXUq4StxWdpJca1zz_4xNPbKRR2T1ShFRCLhtQQ
-tunnels:
-  pxu:
-    proto: http
-    addr: 8080
-    hostname: airhorn.ngrok.io

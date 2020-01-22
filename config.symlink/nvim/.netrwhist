@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/jjt/projects/flow/checkout/src/actions'
 let g:netrw_dirhist_2='/Users/jjt/.dotfiles'
 let g:netrw_dirhist_3='/Users/jjt/.dotfiles/zsh'
 let g:netrw_dirhist_4='/Users/jjt/projects/juul/.jira.d'
+let g:netrw_dirhist_5='/Users/jjt/projects/ratui'
+let g:netrw_dirhist_6='/Users/jjt/projects/ratui/src'

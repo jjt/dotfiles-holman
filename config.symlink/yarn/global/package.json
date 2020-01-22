@@ -9,15 +9,19 @@
     "dotenv": "^6.0.0",
     "dotenv-cli": "^1.4.0",
     "increase-memory-limit": "^1.0.6",
+    "jscodeshift": "^0.6.4",
     "json-diff": "^0.5.2",
     "madge": "^3.4.3",
     "micro-proxy": "^1.1.0",
     "ndb": "^1.0.42",
     "node-gyp": "^3.6.2",
+    "react-codemod": "^5.1.1",
     "sloc": "^0.2.1",
     "stylelint": "^9.10.1",
     "surge": "^0.20.1",
     "taskbook": "^0.1.1",
-    "tldr": "^3.2.6"
+    "tldr": "^3.2.6",
+    "webpack-cli": "^3.3.7",
+    "yarn-deduplicate": "^1.1.1"
   }
 }
