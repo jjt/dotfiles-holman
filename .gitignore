@@ -15,3 +15,6 @@ oni.symlink/swap/*
 oni.symlink/undo/*
 config.symlink/direnv/allow
 config.symlink/yarn/global/yarn-error.log
+bin.symlink/openvpn-admin
+config.symlink/.isolated-storage
+config.symlink/spotify-tui

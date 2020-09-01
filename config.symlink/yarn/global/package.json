@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@pwa/cli": "^0.1.2",
-    "bundle-phobia-cli": "^0.11.0",
+    "bundle-phobia-cli": "^0.14.2",
     "chrome-remote-interface": "^0.18.0",
     "create-next-app": "^0.5.9",
     "create-razzle-app": "^2.4.0",
@@ -15,6 +15,7 @@
     "micro-proxy": "^1.1.0",
     "ndb": "^1.0.42",
     "node-gyp": "^3.6.2",
+    "puppeteer": "^2.1.1",
     "react-codemod": "^5.1.1",
     "sloc": "^0.2.1",
     "stylelint": "^9.10.1",

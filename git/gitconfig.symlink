@@ -22,6 +22,7 @@
   c- = checkout -- .
 	d = difftool
   mtf = merge --strategy-option=theirs
+  pfl = push --force-with-lease
   pl = log --pretty=oneline
   pp = pull -p
   puul = pull
