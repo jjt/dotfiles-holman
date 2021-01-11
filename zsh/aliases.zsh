@@ -4,7 +4,7 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias ns='npm search'
 alias psag='ps aux | rg'
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias bat="bat --paging never"
 alias cat="bat"
 alias fbranch='`git --no-pager branch | fzf`'
