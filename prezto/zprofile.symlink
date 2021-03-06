@@ -81,6 +81,6 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
-source $HOME/.homebrew-token.SECRET
+[ -f $HOME/.homebrew-token.SECRET ] && source $HOME/.homebrew-token.SECRET
 
 export PATH="$HOME/.cargo/bin:$PATH"

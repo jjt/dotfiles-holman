@@ -20,7 +20,6 @@ export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 [[ -s $HOME/.nvm/nvm/sh ]] && source $HOME/.nvm/nvm.sh
 
 eval "$(pyenv init -)"
-source $HOME/.nvm/nvm.sh
 source $HOME/.dotfiles/zsh/aliases.zsh
 
 # Vagrant passthrough
@@ -64,7 +63,7 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 #BASE16_SHELL=$HOME/.config/base16-shell/
 #[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-source <(awless completion zsh)
+# source <(awless completion zsh)
 #eval "$(rbenv init -)"
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
@@ -73,18 +72,18 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 export PATH="$PATH:/Users/jjt/projects/depot_tools"
 
-export GITHUB_OAUTH_TOKEN=$(pass github/gruntwork/oauth-token)
+# export GITHUB_OAUTH_TOKEN=$(pass github/gruntwork/oauth-token)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # opam configuration
 test -r /Users/jjt/.opam/opam-init/init.zsh && . /Users/jjt/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 if [ -n "${RUNCMD+1}" ]; then CMD="$RUNCMD"; unset RUNCMD; eval "$RUNCMD"; fi
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
-export PATH=$M2_HOME/bin:$PATH
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+# export PATH=$M2_HOME/bin:$PATH
 
-eval "$(jira --completion-script-zsh)"
+# eval "$(jira --completion-script-zsh)"
